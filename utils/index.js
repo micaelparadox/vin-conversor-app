@@ -15,7 +15,7 @@ const getSumHex = (decimalDigit, sumDigit) => {
     return result.padStart(2, '0');
 };
 
-const processInput = (longCode, vin) => {
+const   processInput = (longCode, vin) => {
     const dig13 = vin[12];
     const dig14 = vin[13];
     const dig15 = vin[14];
