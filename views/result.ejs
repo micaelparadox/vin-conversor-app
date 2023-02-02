@@ -1,14 +1,41 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Long Code Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Result</title>
 </head>
 
 <body>
-    <h1>Long Code Converter</h1>
-    <p>Result: <%= result %>
-    </p>
-    <a href="/">Back</a>
+    <div class="container my-5">
+        <h1 class="text-center">Result</h1>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">VIN:
+                </h5>
+                <h5 class="card-title">Long Code: <%= result %>
+                </h5>
+            </div>
+        </div>
+        <button id="copy-btn" class="btn btn-success btn-block">Copy Long Code</button>
+        <a href="/" class="btn btn-primary btn-block">Go back</a>
+    </div>
+
+    <script>
+        const copyBtn = document.querySelector("#copy-btn");
+        const longCode = "<%= result %>";
+
+        copyBtn.addEventListener("click", () => {
+            navigator.clipboard.writeText(longCode).then(() => {
+                copyBtn.innerText = "Copied!";
+                copyBtn.classList.remove("btn-success");
+                copyBtn.classList.add("btn-secondary");
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -12,3 +12,5 @@ app.listen(PORT, () => {
 });
 
 app.use("/", require("./routes/index"));
+
+app.use(express.static("public"));
